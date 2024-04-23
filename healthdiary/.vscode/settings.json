@@ -1,0 +1,6 @@
+{
+  "python.defaultInterpreterPath": "C:\\Users\\leeto\\env\\educa\\Scripts\\python.exe",
+  "python.terminal.activateEnvironment": true,
+  "terminal.integrated.shellArgs.windows": ["C:\\Users\\leeto\\env\\educa\\Scripts\\activate.bat"],
+  
+}

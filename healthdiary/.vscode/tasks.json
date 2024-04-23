@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "activateVirtualEnv",
+            "type": "shell",
+            "command": "C:\\Users\\leeto\\env\\educa\\Scripts\\activate.bat",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
