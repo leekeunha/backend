@@ -4,7 +4,7 @@ DEBUG = False
 ADMINS = [
     ('leekeunha','leetoya@naver.com'),
 ]
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS=['healthdiary.com','www.healthdiary.com']
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql',
