@@ -12,7 +12,6 @@ from rest_framework.exceptions import ValidationError
 from django.utils.dateparse import parse_datetime
 from datetime import datetime
 from django.db.models import Max, OuterRef, Subquery, Count, F
-
 class MainMenuListView(generics.ListAPIView):
     queryset = MainMenu.objects.all()
     serializer_class = MainMenuSerializer
@@ -98,7 +97,7 @@ class SportHistoryListCreate(generics.ListCreateAPIView):
             results[-1]['bodypart_names'] = list(results[-1]['bodypart_names'])
             results[-1]['body_part_sport_names'] = [{ 'body_part': k, 'sport_names': list(v) } for k, v in results[-1]['body_part_sport_names'].items()]
 
-        page = self.paginate_queryset(results)  # 페이지네이션 적용
+        page = self.paginate_queryset(results)  
         if page is not None:
             return self.get_paginated_response(page)
 
@@ -199,7 +198,6 @@ class MaxWeightAndCount(generics.ListAPIView):
         user_id = self.request.user.id
         sport_id = self.request.query_params.get('sportId')
 
-        # 최대 중량을 찾기 위한 Subquery
         max_weight_subquery = SportHistory.objects.filter(
             user_id=user_id,
             sport_id=sport_id,
@@ -208,7 +206,6 @@ class MaxWeightAndCount(generics.ListAPIView):
             max_weight=Max('weight')
         ).values('max_weight')[:1]
 
-        # 최대 중량과 해당 중량의 반복 횟수를 포함하는 쿼리셋
         queryset = SportHistory.objects.filter(
             user_id=user_id,
             sport_id=sport_id,
@@ -234,7 +231,6 @@ class MaxWeightAndCount(generics.ListAPIView):
         user_id = self.request.user.id
         sport_id = self.request.query_params.get('sportId')
 
-        # 해당 사용자와 스포츠에 대한 최대 무게와 해당 무게에서의 운동 횟수를 추출
         max_weight_data = SportHistory.objects.filter(
             user_id=user_id, sport_id=sport_id
         ).values(
@@ -243,7 +239,6 @@ class MaxWeightAndCount(generics.ListAPIView):
             max_weight=Max('weight')
         )
 
-        # 최대 무게와 해당 무게에서의 운동 횟수를 결합
         queryset = SportHistory.objects.filter(
             user_id=user_id, sport_id=sport_id
         ).annotate(
