@@ -1,10 +1,10 @@
 # upstream for uWSGI
 upstream uwsgi_app {
-    server unix:/code/healthdiary/uwsgi_app.sock;
+    server unix:/code/src/uwsgi_app.sock;
 }
 server {
     listen       80;
-    server_name  www.healthdiaryproject.com healthdiaryproject.com;
+    server_name  www.healthdiary.com healthdiary.com;
     error_log    stderr warn;
     access_log   /dev/stdout main;
     location / {
@@ -12,9 +12,9 @@ server {
         uwsgi_pass   uwsgi_app;
     }
     location /static/ {
-        alias /code/healthdiary/static/;
+        alias /code/src/static/;
     }
     location /media/ {
-        alias /code/healthdiary/media/;
+        alias /code/src/media/;
     }
 }
