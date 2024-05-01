@@ -4,7 +4,7 @@ from .models import MainMenu,BodyPart,Sport,SportHistory
 # Register your models here.
 @admin.register(MainMenu)
 class MainMenuAdmin(admin.ModelAdmin):
-    list_display = ["title"]
+    list_display = ['id',"title"]
     # prepopulated_fields = {"slug": ("title",)}
 
 @admin.register(BodyPart)

@@ -12,6 +12,7 @@ from rest_framework.exceptions import ValidationError
 from django.utils.dateparse import parse_datetime
 from datetime import datetime
 from django.db.models import Max, OuterRef, Subquery, Count, F
+
 class MainMenuListView(generics.ListAPIView):
     queryset = MainMenu.objects.all()
     serializer_class = MainMenuSerializer
