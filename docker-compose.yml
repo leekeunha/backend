@@ -8,6 +8,8 @@ services:
       - POSTGRES_DB=healthdiary
       - POSTGRES_USER=leekeunha
       - POSTGRES_PASSWORD=jhkslt35#
+    ports:
+      - 5432:5432
   cache:
     image: redis:7.0.4
     restart: always
@@ -15,7 +17,15 @@ services:
       - ./data/cache:/data
   web:
     build: .
-    command: ["./wait-for-it.sh","db:5432","--","uwsgi", "--ini", "/code/config/uwsgi/uwsgi.ini"]
+    command:
+      [
+        "./wait-for-it.sh",
+        "db:5432",
+        "--",
+        "uwsgi",
+        "--ini",
+        "/code/config/uwsgi/uwsgi.ini",
+      ]
     restart: always
     volumes:
       - .:/code
@@ -37,4 +47,3 @@ services:
       - .:/code
     ports:
       - "80:80"
-  
