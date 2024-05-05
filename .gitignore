@@ -1,1 +1,2 @@
 uwsgi_app.sock
+data/
