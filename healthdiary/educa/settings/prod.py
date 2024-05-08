@@ -4,7 +4,7 @@ DEBUG = False
 ADMINS = [
     ('leekeunha','leetoya@naver.com'),
 ]
-ALLOWED_HOSTS=['http://healthdiary.com','https://healthdiary.com','healthdiary.com','www.healthdiary.com']
+ALLOWED_HOSTS=['*']
 
 DATABASES = {
     'default':{

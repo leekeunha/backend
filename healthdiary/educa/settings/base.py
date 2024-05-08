@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-3^i#0-tl1t(qa(3#6xt2y+$mz_^*mj&a57i+-*#+4!(yeu5j69"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -178,4 +178,5 @@ CHANNEL_LAYERS = {
 }
 
 STATIC_ROOT = BASE_DIR / 'static'
+
 
