@@ -162,6 +162,8 @@ CORS_ALLOWED_ORIGINS = [
     'https://master--visionary-strudel-ae6600.netlify.app',
     'http://healthdiary.com',
     'https://healthdiary.com',
+    'http://54.253.213.1',
+    'https://54.253.213.1',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
