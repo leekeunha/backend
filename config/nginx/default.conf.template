@@ -3,7 +3,14 @@ upstream uwsgi_app {
     server unix:/code/healthdiary/uwsgi_app.sock;
 }
 server {
-    listen       80;
+    listen 80;
+    server_name www.educaproject.com educaproject.com;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen               443 ssl;
+    ssl_certificate /code/healthdiary/ssl/healthdiary.crt;
+    ssl_certificate_key /code/healthdiary/ssl/healthdiary.key;
     server_name  www.healthdiaryproject.com healthdiaryproject.com;
     error_log    stderr warn;
     access_log   /dev/stdout main;
